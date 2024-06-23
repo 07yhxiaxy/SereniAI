@@ -14,6 +14,17 @@ SereniAI is like a supportive friend, always there to help you modulate your emo
 - **Customized Haptics Device**: Built with Raspberry Pi and advanced actuators, this device delivers personalized haptic feedback to enhance emotional modulation.
 
 With SereniAI, you can take control of your emotional well-being in a modern, effective way. Experience the future of emotional support with our AI-powered, haptics-enhanced solution.
+## Innovative Features
+1. **Human-in-the-loop**\
+We try connect human directly to the SereniAI. In this way, the interaction is stronger between AI and human because human can actually *feel* and *sense* the impact of AI instead of just chatting in the prompt. 
 
+2. **Combination of AI and Haptics Devices**\
+Haptics technology shows great potential for provide human realistic tactile feeling. Most of the current AI's displaying format is graphical or textual. However, haptics technology shorten the distance between AI's output and human user, hence enabling closer interaction. 
+3. **Leveraging AI's Power**\
+Since LLM's training set including a significant amount of data, it would obtain enough "experience" to play a role as your emotional companion, which means it could generate proper textual instructions to assist human to pursue target emotional state. Later on, these text command will be passed to haptics device for further human-machine interaction.
+4. **Contribute Dataset**\
+For each given target emotional state $s_t$ and current human emotional state $s_i$, the SereniAI will provide control signal $c_i$ to human using haptics device. As one of the potential project, we could establish a dataset that record each time step's emotional state ($s_i \ \text{and} \ s_t$) and corresonding haptics control ($c_i$). 
+
+### Reference
 [1]: HUME AI, https://dev.hume.ai/intro \
 [2]: OpenAI, ChatGPT-4, https://openai.com/index/gpt-4/
