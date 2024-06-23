@@ -2,17 +2,15 @@
 import cv2
 import asyncio
 import math
+from llm_control import generate_action
+from msg_to_rsp import extract_msg
+import subprocess
 from hume import HumeStreamClient, StreamSocket
 from hume.models.config import FaceConfig
 # Specify the path to save the image
 save_path = './saved_img.jpg'
 # Initialize the webcam
 webcam = cv2.VideoCapture(0)
-# finally:
-    # Ensure the webcam is released and all OpenCV windows are closed
-    # webcam.release()
-    # cv2.destroyAllWindows()
-    # print("Camera off. Program ended.")
 async def main():
     while True:
         # Video capture part
@@ -48,7 +46,7 @@ async def main():
             webcam.release()
             cv2.destroyAllWindows()
         # Hume part
-        client = HumeStreamClient("tnMeVDLCMKY1GAn6iPbVXdGlDFFWZL76jwZUXlg2kGf7MTPM")
+        client = HumeStreamClient("YOUR API KEY")
         config = FaceConfig(identify_faces=True)
         async with client.connect([config]) as socket:
             result = await socket.send_file("./saved_img.jpg")
@@ -73,4 +71,9 @@ async def main():
                         PC_2 = result['face']['predictions'][0]['emotions'][i]['name']
                 print(PC_1)
                 print(PC_2)
+                target_emotion = 'calm'
+                llm_response = generate_action(PC_1+' and '+PC_2, target_emotion)
+                print(llm_response)
+                # mag, move = extract_msg(llm_response)
+                # result = subprocess.run(['./execute_example_pi_commmand.sh',mag +' '+move], text=True, capture_output=True)
 asyncio.run(main())
