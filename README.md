@@ -31,6 +31,8 @@ SereniAI uses a feedback loop to continuously improve its effectiveness. For eac
 - **Integrate Facial Expression and Audio**
 
 - **Investigating Different Haptics and LLM Modules**
+
+- **Adding GUI support**
 ### Reference
 [1]: HUME AI, https://dev.hume.ai/intro \
 [2]: OpenAI, ChatGPT-4, https://openai.com/index/gpt-4/
